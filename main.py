@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 __author__ = "Nova Kwok"
 __license__ = "GPLv3"
-import graphene
+# import graphene
 import csv
 import datetime
 import requests
@@ -63,7 +63,7 @@ query {{
 
 star_list = []
 hasNextPage = True
-endCursor = "" # Start from begining
+endCursor = null # Start from begining
 count = 0
 with open('stargazers.csv', 'w') as stars:
     stars_writer = csv.writer(stars)
@@ -101,5 +101,5 @@ with open('stargazers.csv', 'w') as stars:
             stars_writer.writerow([username,name,blog,company,bio,avatar_url,hireable,num_followers,num_following,created_at,star_time])
 
         count = count + 100
-        print(count + "users processed.")
+        print(str(count) + "users processed.")
 
